@@ -22,10 +22,14 @@
   flex-direction: column;
   min-height: 60vh;
 }
-h1 {
+.heading {
   font-weight: 400;
   padding: 80px;
   color: #f99928;
+}
+h1 {
+  color: #f99928;
+  font-weight: 400;
 }
 h3 {
   font-weight: 400;

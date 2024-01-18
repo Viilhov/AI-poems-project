@@ -1,4 +1,3 @@
-// Display API response
 function showRecipie(response) {
   new Typewriter("#recipie-details", {
     strings: response.data.answer,
@@ -11,14 +10,13 @@ function showRecipie(response) {
 function generateRecipie(event) {
   event.preventDefault();
 
-  // Build API Url
   let ingredientInput = document.querySelector("#ingredients");
   let key = "331711t40ba7f6a03e3o8bfc5f54faa4";
-  let prompt = `Generate a recipie using ${ingredientInput}`;
+  let prompt = `Generate a recipie using ${ingredientInput.value} as main ingredient`;
   let context =
-    "You are a recipie generator.  You love to generate healty recipies with only 6 easy to find ingrediants. Please display each ingredient on a seperate line and provide simple instructions for the user to follow";
+    "You are a recipie expert. You love to generate healty recipies with up to 6 easy to find ingrediants also providing user instructions. Please please display in basic HTML and seperate each ingredient and instructions with a <br>.";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${key}`;
-  // Make call to the api
+
   axios.get(apiUrl).then(showRecipie);
 }
 
